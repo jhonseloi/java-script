@@ -1,0 +1,122 @@
+P<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        p#bloco {
+            background-color: green;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            width: 200px;
+            height: 150px;
+        }
+
+        p#res {
+            font: 1.5em bold;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            height: 20px;
+        }
+
+        input[type="button"] {
+            width: 112px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estudos DOM</h1>
+    <h2>Texto destacado</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti rem illo nisi culpa odit dolorum! Corporis eos iusto, sequi ipsa ullam earum nihil sint temporibus veritatis, illum deleniti delectus numquam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nisi tenetur odit culpa officiis reprehenderit! Earum mollitia, praesentium necessitatibus iusto eos eveniet, consequatur provident architecto, nesciunt repudiandae cum obcaecati nisi!</p>
+    <h2>Bloco interativo</h2>
+    <p id="bloco">Interaja</p>
+    <h2>Operações aritméticas</h2>
+    <p>
+        <input type="number" name="num1" id="inum1"> |
+        <input type="number" name="num2" id="inum2">
+    </p> 
+    <p>
+        <input type="button" value="Somar" onclick="soma()">
+        <input type="button" value="Subtrair" onclick="sub()">
+    </p>
+    <p>
+        <input type="button" value="Multiplicar" onclick="multi()">
+        <input type="button" value="Dividir" onclick="div()">
+    </p>
+    <p id="res">Resultado</p>
+    <script>
+        var corpo = window.document.body
+        corpo.style.background = 'lightblue'
+        corpo.style.fontFamily = 'Arial'
+        var p1 = window.document.getElementsByTagName('p')[0]
+        p1.style.color = 'red'
+
+        var b = window.document.getElementById('bloco')
+        b.addEventListener('click', clicar)
+        b.addEventListener('mousemove', entrar)
+        b.addEventListener('mouseout', sair)
+        
+        function clicar() {
+            b.innerHTML = 'Clicou!'
+            b.style.background = 'red'
+        }
+
+        function entrar() {
+            b.innerHTML = 'Entrou!'
+            b.style.background = 'green'
+        }
+
+        function sair() {
+            b.innerHTML = 'Saiu!'
+            b.style.background = 'green'
+        }
+
+        function soma() {
+            var txt1 = document.getElementById('inum1')
+            var txt2 = document.getElementById('inum2')
+            n1 = Number(txt1.value)
+            n2 = Number(txt2.value)
+            a = n1 + n2
+            var res = document.getElementById('res')
+            res.innerHTML = (`A soma entre ${n1} e ${n2} é igual a <strong>${a}</strong>`)
+        }
+        
+        function sub() {
+            var txt1 = document.getElementById('inum1')
+            var txt2 = document.getElementById('inum2')
+            n1 = Number(txt1.value)
+            n2 = Number(txt2.value)
+            s = n1 - n2
+            var res = document.getElementById('res')
+            res.innerHTML = (`A subtração entre ${n1} e ${n2} é igual a <strong>${s}</strong>`)
+        }
+
+        function multi() {
+            var txt1 = document.getElementById('inum1')
+            var txt2 = document.getElementById('inum2')
+            n1 = Number(txt1.value)
+            n2 = Number(txt2.value)
+            m = n1 * n2
+            var res = document.getElementById('res')
+            res.innerHTML = (`A multiplicação entre ${n1} e ${n2} é igual a <strong>${m}</strong>`)
+        }
+
+        function div() {
+            var txt1 = document.getElementById('inum1')
+            var txt2 = document.getElementById('inum2')
+            n1 = Number(txt1.value)
+            n2 = Number(txt2.value)
+            d = n1 / n2
+            var res = document.getElementById('res')
+            res.innerHTML = (`A divisão entre ${n1} e ${n2} é igual a <strong>${d}</strong>`)
+        }
+    </script>
+</body>
+</html>
