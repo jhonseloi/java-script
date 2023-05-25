@@ -28,7 +28,15 @@
             if (pais == 'Brasil') {
                 res.innerHTML += ('Você é brasileiro!')
             } else {
-                res.innerHTML += ('Você é estrangeiro!')
+                if (pais == 'brasil') {
+                    res.innerHTML += ('Você é brasileiro!')
+                } else {
+                    if (pais == 'BRASIL') {
+                        res.innerHTML += ('Você é brasileiro!')
+                    } else {
+                        res.innerHTML += ('Você é estrangeiro!')
+                    }
+                } 
             }
         }
     </script>
