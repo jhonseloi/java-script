@@ -13,14 +13,15 @@
     </header>
     <section>
         <div>
-           <p>Ano de nascimento:
-            <input type="number" name="txtano" id="txtano">
+           <p>
+                <label for="txtano">Ano de nascimento:</label>
+                <input type="number" name="txtano" id="txtano" required minlength="4">
            </p>
            <p>Sexo:
-            <input type="radio" name="radsex" id="mas" checked> 
-            <label for="mas"> Masculino </label>
-            <input type="radio" name="radsex" id="fem">
-            <label for="fem"> Feminino </label>
+                <input type="radio" name="radsex" id="mas" checked> 
+                <label for="mas"> Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem"> Feminino</label>
            </p>
            <p>
             <input type="button" value="Verificar" onclick="verificar()">
