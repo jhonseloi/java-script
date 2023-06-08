@@ -1,34 +1,30 @@
 @charset "UTF-8";
 
 body {
-    background: rgb(107, 187, 241);
-    font: 1em Arial;
+    background: rgb(63, 173, 209);
+    color: white;
+    font-family: Arial;
 }
 
-header {
-    color: white;
+header, footer {
     text-align: center;
 }
 
 section {
     background: white;
+    color: black;
     width: 500px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.295);
-    padding: 10px;
+    padding: 20px;
     margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
 }
 
 input[type="number"] {
-    width: 80px;
-}
-
-div#res {
-    text-align: center;
+    width: 50px;
 }
 
 footer {
-    color: white;
-    text-align: center;
     font-style: italic;
+    margin: 10px;
 }
