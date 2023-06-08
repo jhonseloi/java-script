@@ -1,18 +1,27 @@
-function carregar() {
-    var msg = document.getElementById('msg')
-    var img = document.getElementById('imagem')
-    var agora = new Date()
-    var hora = agora.getHours()
-    msg.innerHTML = (`Agora são ${hora} horas.`)
+/* 
+CORES:
+Manhã -> #e2cd9f
+Tarde -> #b9846f
+Noite -> #515154
+*/
 
+function carregar() {
+    var data = new Date()
+    var hora = data.getHours()
+    var msg = document.getElementById('msg')
+    msg.innerHTML = (`Agora são ${hora} horas.`)
+    var imagem = document.createElement('img')
+    imagem.setAttribute('id', 'foto')
+    img.appendChild(imagem)
+    
     if (hora >= 0 && hora < 6 || hora >= 18) {
-        img.src = 'fotonoite.png'
+        imagem.setAttribute('src', '../ex014/imagens/fotonoite.png')
         document.body.style.background = '#515154'
-    } else if (hora >= 6 && hora < 12) {
-        img.src = 'fotomanha.png'
+    } else if (hora > 6 && hora < 12) {
+        imagem.setAttribute('src', '../ex014/imagens/fotomanha.png')
         document.body.style.background = '#e2cd9f'
     } else {
-        img.src = 'fototarde.png'
+        imagem.setAttribute('src', '../ex014/imagens/fototarde.png')
         document.body.style.background = '#b9846f'
     }
 }
