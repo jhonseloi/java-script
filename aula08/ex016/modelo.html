@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo de Site</title>
+    <title>Super Contador</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Contador</h1>
     </header>
     <section>
-        <div>
-            Testando
-        </div>
-        <div></div>
+        <fieldset>
+            <legend> Contagem </legend>
+            <p>
+                <label for="txtini">Início: </label>
+                <input type="number" name="inicio" id="txtini">
+            </p>
+            <p>
+                <label for="txtfim">Fim: </label>
+                <input type="number" name="fim" id="txtfim">
+            </p>
+            <p>
+                <label for="txtpas">Passo: </label>
+                <input type="number" name="passo" id="txtpas">
+            </p>
+            <p>
+                <input type="button" value="Contar" onclick="contador()">
+            </p>
+            <div id="res">
+            
+            </div>
+        </fieldset>
     </section>
     <footer>
         <p>&copy JEF</p>
