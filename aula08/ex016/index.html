@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Contador</title>
+    <title>Contador</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,8 @@
         <h1>Vamos contar</h1>
     </header>
     <section>
-        <div id="dados">
+        <fieldset>
+            <legend>Insira os números</legend>
             <p>
                 <label for="txtini">Início: </label>
                 <input type="number" name="inicio" id="txtini">
@@ -29,9 +30,9 @@
                 <input type="button" value="Contar" onclick="contar()">
             </p>
             <div id="res">
-                
+            
             </div>
-        </div>
+        </fieldset>
     </section>
     <footer>
         <p>&copy JEF</p>
