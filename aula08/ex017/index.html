@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo de Site</title>
+    <title>Tabuada</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Tabuada</h1>
     </header>
     <section>
         <div>
-            Testando
+            <p>
+                <label for="txttab">Número: </label>
+                <input type="number" name="tab" id="txttab">
+                <input type="button" value="Gerar tabuada" onclick="tabuada()">
+            </p>
         </div>
-        <div></div>
+        <div id="res">
+            
+        </div>
     </section>
     <footer>
         <p>&copy JEF</p>
