@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V</title>
+</head>
+<body>
+    <div id="res"> </div>
+
+    <script>
+        let res = document.querySelector('div#res')
+        let tamanho = 8
+
+        for (let i = 0; i < tamanho; i++) {
+            let linha = ''
+
+            for (let f = 0; f < (tamanho * 2) - 1; f++) {
+                if (f == i || f == (tamanho * 2) - (i + 2)) {
+                    linha += '*'
+                } else {
+                    linha += '_'
+                }
+            }
+
+            let paragrafo = document.createElement('p')
+            paragrafo.textContent = linha
+            res.appendChild(paragrafo)
+        }
+    </script>
+</body>
+</html>

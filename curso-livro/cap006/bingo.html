@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <style>
+        input[type='number'] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" name="numero" id="numero" min="1" max="30">
+    <input type="button" value="Adicionar" onclick="sorteio()">
+    <p id="mensagem"> </p>
+    <script>
+        let msg = document.querySelector('p#mensagem')
+        let sorteados = []
+
+        function sorteio() {
+            let num = document.querySelector('input#numero').value 
+            document.querySelector('input#numero').value = ''
+
+            for (let pos = 0; pos < sorteados.length; pos++) {
+                if (sorteados[pos] == num) {
+                    alert('Número já sorteado!')
+                    return
+                }
+            }
+
+            sorteados.push(num)
+            msg.innerHTML = `<p>Números sorteados de 1 a 60:</p>${sorteados}`
+        }
+    </script>
+</body>
+</html>

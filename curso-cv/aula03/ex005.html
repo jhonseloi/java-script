@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao DOM</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estudos com DOM</h1>
+    <p class="msg">Aqui vai o resultado</p>
+    <p name="msg">Aprendendo a usar <strong>DOM</strong> com JavaScript</p>
+    <div id="acesso">Clique em mim</div>
+    <script>
+        var corpo = window.document.body
+        corpo.style.background = 'green'
+        
+        /* MÉTODO PARA TAG */
+        var p1 = window.document.getElementsByTagName('p')[0]
+        window.document.write('Está escrito assim: ' + p1.innerHTML)
+        p1.style.background = 'blue'
+        
+        /*  MÉTODO PARA ID
+        var p1 = window.document.getElementById('acesso')
+        window.document.write('Está escrito assim: ' + p1.innerHTML)
+        */
+
+        /*  MÉTODO PARA NAME
+        var p1 = window.document.getElementsByName('msg')[0]
+        window.document.write('Está escrito assim: ' + p1.innerHTML)
+        */
+
+        /*  MÉTODO PARA CLASS
+        var p1 = window.document.getElementsByClassName('msg')[0]
+        window.document.write('Está escrito assim: ' + p1.innerHTML)
+        */
+
+        /* MÉTODO PARA SELETOR (CSS) */
+        var d = window.document.querySelector('div#acesso')
+        d.style.background = 'violet'
+    </script>
+</body>
+</html>

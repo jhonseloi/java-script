@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos no Futebol</title>
+</head>
+<body>
+    <div id="res">
+
+    </div>
+    <script>
+        let res = document.getElementById('res')
+        let vitoria = Number(prompt('Quantos jogos o Casa do Código FC venceu?'))
+        let empate = Number(prompt('Quantos jogos o Casa do Código FC empatou?'))
+        res.innerHTML = `Casa do Código FC somou ${(vitoria * 3) + empate} pontos no total.`
+    </script>
+</body>
+</html>

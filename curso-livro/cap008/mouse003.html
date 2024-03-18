@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse</title>
+</head>
+<body>
+    <canvas id="tela" width="600" height="400"> </canvas>
+    <div>
+        <button onclick="selecionarCor('blue')">Azul</button>
+        <button onclick="selecionarCor('red')">Vermelho</button>
+        <button onclick="selecionarCor('green')">Verde</button>
+        <button onclick="selecionarCor('yellow')">Amarelo</button>
+    </div>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        c.fillStyle = 'gray'
+        c.fillRect(0, 0, 600, 400)
+
+        let corSelecionada = 'white'
+
+        // Função para selecionar a cor
+        function selecionarCor(cor) {
+            corSelecionada = cor
+            console.log(`Cor selecionada: ${corSelecionada}`)
+        }
+
+        // Função para desenhar o quadrado na posição do clique com a cor selecionada
+        function desenharQuadrado(x, y) {
+            c.fillStyle = corSelecionada
+            c.beginPath()
+            c.arc(x, y, 15, 0, 2*3.14)
+            c.fill()
+            console.log(`Posição do clique: ${x},${y}. Cor selecionada: ${corSelecionada}`)
+        }
+
+        // Evento de clique no canvas
+        tela.onclick = function(evento) {
+            let x = evento.pageX - tela.offsetLeft
+            let y = evento.pageY - tela.offsetTop
+            desenharQuadrado(x, y)
+        }
+    </script>
+</body>
+</html>

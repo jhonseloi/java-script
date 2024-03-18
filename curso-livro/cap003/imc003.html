@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular IMC</title>
+</head>
+<body>
+    <div id="mostra">
+
+    </div>
+    <script>
+        var calculaIMC = function(peso, altura) {
+            var IMC = peso / (altura * altura)
+            return IMC
+        }
+        var peso = 96
+        var altura = 1.74
+        var imc = Math.round(calculaIMC(peso, altura))
+        mostra.innerHTML = `<p>Meu IMC é ${imc}</p>`
+        mostra.innerHTML += `<p>Eu estou ${imc - 18.5} pontos acima do limite de magreza.</p>`
+        mostra.innerHTML += `<p>Eu estou ${35 - imc} pontos abaixo do limite de obesidade severa.</p>`
+    </script>
+</body>
+</html>

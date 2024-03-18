@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média de Idade</title>
+    <style>
+        input[type="number"] {
+            width: 80px;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="res"> 
+        <p>
+            <label for="total_form">Quantos familiares você têm?</label>    
+        </p>
+        <input type="number" name="total_fam" id="total_fam" min="1">
+        <input type="button" value="Confirmar" onclick="idades()"></div>
+    <script>
+        let res = document.querySelector('div#res')
+        let total_fam = document.querySelector('input#total_fam')
+        function idades() {
+            let fam = Number(total_fam.value)
+            let soma_idade = 0
+            for (numero = 1; numero <= fam; numero++) {
+                let idade = Number(prompt(`Qual a idade do ${numero}° familiar?`))
+                soma_idade = soma_idade + idade
+            }
+            let media = Math.round(soma_idade / fam)
+            res.innerHTML = `<p>A média de idade dos seus famíliares é ${media} anos.</p>`
+        }
+    </script>
+</body>
+</html>

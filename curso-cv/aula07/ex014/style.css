@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+    background: lightblue;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+section {
+    background: white;
+    color: black;
+    width: 500px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
+}
+
+footer {
+    font-style: italic;
+    margin: 10px;
+}

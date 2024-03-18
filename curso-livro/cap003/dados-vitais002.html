@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Vitais</title>
+</head>
+<body>
+    <div id="res">
+
+    </div>
+    <script>
+        let idade = prompt('Qual a sua idade?')
+        let res = document.getElementById('res')
+        
+        let diasDeVida = function(idade) {
+            let diasdv = idade * 365
+            return diasdv
+        }
+
+        let batimentos = function(dias) {
+            let bat = dias * 24 * 60 * 80
+            return bat
+        }
+
+        let dias = diasDeVida(idade)
+        let bat_cor = batimentos(dias)
+        res.innerHTML = `<p>Você viveu aproximadamente ${dias} dias.</p>`
+        res.innerHTML += `<p>Seu coração bateu aproximadamente ${bat_cor} vezes.</p>`
+    </script> 
+</body>
+</html>

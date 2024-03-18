@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idades</title>
+</head>
+<body>
+    <script>
+        var agora = new Date()
+        var ano = agora.getFullYear()
+        document.write(`<p>Eu nasci em ${ano - 24}.</p>`)
+        document.write(`<p>Adiano nasceu em ${ano - 26}.</p>`)
+        document.write(`<p>Paulo nasceu em ${ano - 32}.</p>`)
+        var eu = 24
+        var adriano = 26
+        var paulo = 32
+        var total = eu + adriano + paulo
+        var media = total / 3
+        document.write(`<p>A soma das idades entre eu e os autores é ${total}.</p>`)
+        document.write(`<p>A média de idade entre eu e os autores é ${Math.round(media)}.</p>`)
+    </script>
+</body>
+</html>

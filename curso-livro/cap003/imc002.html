@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular IMC</title>
+</head>
+<body>
+    <div id="mostra">
+
+    </div>
+    <script>
+        var mostra = document.getElementById('mostra')
+        var calculaIMC = function(peso, altura) {
+            var imc = peso / (altura * altura)
+            mostra.innerHTML = `Meu IMC calculado é ${imc.toFixed(1)}`
+        }
+        peso = 96
+        altura = 1.74
+        calculaIMC(peso, altura)
+
+        var calculaIMCprimo = function(pesoPrimo, alturaPrimo) {
+            var imcPrimo = pesoPrimo / (alturaPrimo * alturaPrimo)
+            return imcPrimo
+        }
+        var pesoPrimo = 83
+        var alturaPrimo = 1.76
+        calculaIMCprimo(pesoPrimo, alturaPrimo)
+        mostra.innerHTML += `O IMC do meu primo é ${imcPrimo}`
+    </script>
+</body>
+</html>

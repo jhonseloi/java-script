@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+</head>
+<body>
+    <div id="res"></div>
+    <script>
+        let res = document.querySelector('div#res')
+
+        for (linha = 0; linha < 3; linha++) {
+            for (coluna = 0; coluna < 10; coluna++) {
+                res.innerHTML += '*'
+            }
+            res.innerHTML += `<p> </p>`
+        }
+    </script>
+</body>
+</html>

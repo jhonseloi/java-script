@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Massa Corporal</title>
+</head>
+<body>
+    <div id="mostra">
+
+    </div>
+    <script>
+        var mostra = document.getElementById('mostra')
+        var peso = 75
+        var altura = 1.72
+        var imc = peso / (altura * altura)
+        mostra.innerHTML = `<p>Meu IMC é ${imc.toFixed(2)}.</p>`
+        
+        var pesoPrimo = 83
+        var alturaPrimo = 1.76
+        var imcPrimo = pesoPrimo / (alturaPrimo * alturaPrimo)
+        mostra.innerHTML += `<p>O IMC do meu primo é ${imcPrimo.toFixed(2)}.</p>`
+    </script>
+</body>
+</html>

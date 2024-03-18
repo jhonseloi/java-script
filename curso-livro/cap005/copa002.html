@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anos de Copa</title>
+    <style>
+        input[type="number"] {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="res">
+        <p>Quais anos tiveram Copa do Mundo até o momento?</p>
+        <input type="button" value="Clique aqui para saber!" onclick="copas()">
+    </div>
+    <script>
+        let res = document.querySelector('div#res')
+        let ano_de_copa = 1930
+        function copas() {
+            while (ano_de_copa <= 2022) {
+                res.innerHTML += `<p>${ano_de_copa} teve Copa!</p>`
+                ano_de_copa = ano_de_copa + 4
+            }
+            res.innerHTML += '<p>Quer ver quais foram os anos de edição de Copa que já aconteceu a partir de um ano específico, além dos anos das próximas Copas? Preencha os espaços abaixo e descubra!</p>'
+            res.innerHTML += '<label for="copas_pas">Ano inicial: </label>'
+            res.innerHTML += '<input type="number" name="copas_pas" id="copas_pas" min="1930" step="4">'
+            res.innerHTML += '<p></p>'
+            res.innerHTML += '<label for="copas_fut">Ano final: </label>'
+            res.innerHTML += '<input type="number" name="copas_fut" id="copas_fut" min="2026">'            
+            res.innerHTML += '<p><input type="button" value="Confirmar" onclick="copas_pf()"></p>'
+        }
+
+        function copas_pf() {
+            let copas_p = document.querySelector('input#copas_pas')
+            let copas_f = document.querySelector('input#copas_fut')
+            let ano_inicial = Number(copas_p.value)
+            let ano_limite = copas_f.value
+            let ano_base = 2026
+            res.innerHTML = ''
+            while (ano_inicial < ano_base) {
+                res.innerHTML += `<p>${ano_inicial} teve Copa!</p>`
+                ano_inicial = ano_inicial + 4
+            }
+            while (ano_base <= ano_limite) {
+                res.innerHTML += `<p>${ano_base} terá Copa!</p>`
+                ano_base = ano_base + 4
+            }
+        }
+    </script>
+</body>
+</html>

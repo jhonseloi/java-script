@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocidade</title>
+    <style>
+        input[type="number"] {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando a velocidade</h1>
+    <p><strong>Limite de velocidade: 60 Km/h</strong></p>
+    <p>
+        Velocidade do veículo:
+        <input type="number" name="vel" id="txtvel"> Km/h 
+        <input type="button" value="Verificar" onclick="calculo()">
+    </p>
+    <div id="res"></div>
+    <script>
+        function calculo() {
+            var txtv = document.getElementById('txtvel')
+            var vel = Number(txtv.value)
+            var res = document.getElementById('res')
+            res.innerHTML = (`A velocidade do seu veículo é de <strong>${vel} km/h</strong>.`)
+            if (vel > 60) {
+                res.innerHTML += (`<p>Você foi <strong>MULTADO</strong> por ultrapassar o limite de velocidade.</p>`)
+            }
+            res.innerHTML += ('<p>Não esqueça de dirigir sempre com o cinto de segunrança.</p>')
+        }
+    </script>
+</body>
+</html>

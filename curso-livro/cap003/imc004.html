@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+   <div id="res">
+
+   </div> 
+   <script>
+        let nome = prompt('Qual o seu nome?')
+        let altura = Number(prompt('Qual a sua altura?'))
+        let peso = Number(prompt('Qual o seu peso?'))
+        let res = document.getElementById('res')
+        let imcUsuario = function(altura, peso) {
+            calculaIMC = peso / (altura * altura)
+            return calculaIMC
+        }
+        let imc = imcUsuario(altura, peso).toFixed(2)
+        res.innerHTML = `${nome}, o seu IMC é ${imc}.`
+   </script>
+</body>
+</html>

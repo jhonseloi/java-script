@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <h1>Bandeira da Noruega</h1>
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        c.fillStyle = 'red'
+        c.fillRect(0, 0, 600, 400)
+
+        c.fillStyle = 'white'
+        c.fillRect(0, 150, 600, 100) // Borda horizontal
+        c.fillRect(150, 0, 100, 400) // Borda vertical
+
+        c.fillStyle = 'blue'
+        c.fillRect(0, 165, 600, 70) // Linha horizontal
+        c.fillRect(165, 0, 70, 400) // Linha vertical
+    </script>
+</body>
+</html>

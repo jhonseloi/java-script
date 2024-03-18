@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+body {
+    background: rgb(107, 187, 241);
+    color: white;
+    font: 1em Arial;
+}
+
+header {
+    text-align: center;
+}
+
+section {
+    background: white;
+    color: black;
+    width: 500px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.233);
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+select {
+    width: 170px;
+    margin: 5px 0px 2px 0px;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        input[type="number"] {
+            width: 50px;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="res">
+        <p>
+            <label for="tab">Digite um número:</label>
+        </p>
+        <input type="number" name="tab" id="tab">
+        <input type="button" value="OK" onclick="tabuada()">
+    </div>
+    <script>
+        let res = document.querySelector('div#res')
+        function tabuada() {
+            let tab = document.querySelector('input#tab')
+            let t = Number(tab.value)
+            res.innerHTML += `<p>Tabuada de ${t}:</p>`
+            for (multi = 1; multi <= 10; multi++) {
+                res.innerHTML += `<p>${t} x ${multi} é igual a ${t * multi}.</p>`
+            }
+        }
+    </script>
+</body>
+</html>

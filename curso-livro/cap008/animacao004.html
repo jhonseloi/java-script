@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação</title>
+</head>
+<body>
+    <canvas id="tela" width="600" height="400"> </canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        let alvoX
+        let alvoY
+        let pontos = 0
+
+        let cor = function (cor) {
+            c.fillStyle = cor
+        }
+
+        let circulo = function (x, y, raio) {
+            c.beginPath()
+            c.arc(x, y, raio, 0, 2 * Math.PI)
+            c.fill()
+        }
+
+        let desenhaAlvo = function (x, y) {
+            let raio = 40
+            cor('white')
+            circulo(x, y, raio)
+            cor('red')
+            circulo(x, y, raio - 10)
+            cor('white')
+            circulo(x, y, raio - 20)
+            cor('red')
+            circulo(x, y, raio - 30)
+        }
+
+        let sorteia = function (max) {
+            return Math.floor(Math.random() * max)
+        }
+
+        let limpa = function () {
+            c.clearRect(0, 0, tela.width, tela.height)
+        }
+
+        let calcularDistancia = function (x1, y1, x2, y2) {
+            return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+        }
+
+        let verificaClique = function (event) {
+            let rect = tela.getBoundingClientRect()
+            let mouseX = event.clientX - rect.left
+            let mouseY = event.clientY - rect.top
+
+            let distancia = calcularDistancia(mouseX, mouseY, alvoX, alvoY)
+
+            if (distancia < 40) {
+                pontos++
+            }
+        }
+
+        let desenha = function () {
+            limpa()
+            alvoX = sorteia(600)
+            alvoY = sorteia(400)
+            desenhaAlvo(alvoX, alvoY)
+        }
+
+        document.addEventListener("click", verificaClique)
+
+        setInterval(desenha, 1000)
+    </script>
+</body>
+
+</html>

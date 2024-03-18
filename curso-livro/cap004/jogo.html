@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Adivinhação</title>
+</head>
+<body>
+    <div id="res"> </div>
+    <script>
+        let res = document.querySelector('div#res')
+        let n_random = Math.round(Math.random() * 10)
+        let chute1 = prompt('TENTATIVA 1: Pensei em um número de 0 a 10. Qual você acha que é?')
+        let chute2 = prompt('TENTATIVA 2: Pensei em um número de 0 a 10. Qual você acha que é?')
+        let chute3 = prompt('TENTATIVA 3:Pensei em um número de 0 a 10. Qual você acha que é?')
+        if (chute1 > 10 || chute2 > 10 || chute3 > 10 || isNaN(chute1) || isNaN(chute2) || isNaN(chute3)) {
+            res.innerHTML = '<p>Valor inválido entre as tentativas!</p> Digite números de 0 a 10.'
+        } else if (chute1 == n_random || chute2 == n_random || chute3 == n_random) {
+            res.innerHTML = `Uau! Você acertou, pois eu pensei em ${n_random}.`
+        } else {
+            res.innerHTML = '<p>Você errou!</p>'
+            if (chute1 > n_random) {
+                res.innerHTML += `<p>O primeiro número chutado (${chute1}) é MAIOR do que o número pensado.</p>`
+            } 
+            if (chute1 < n_random) {
+                res.innerHTML += `<p>O primeiro número chutado (${chute1}) é MENOR do que o número pensado.</p>`
+            }
+            if (chute2 > n_random) {
+                res.innerHTML += `<p>O segundo número chutado (${chute2}) é MAIOR do que o número pensado.</p>`
+            } 
+            if (chute2 < n_random) {
+                res.innerHTML += `<p>O segundo número chutado (${chute2}) é MENOR do que o número pensado.</p>`
+            }
+            if (chute3 > n_random) {
+                res.innerHTML += `<p>O terceiro número chutado (${chute3}) é MAIOR do que o número pensado.</p>`
+            } 
+            if (chute3 < n_random) {
+                res.innerHTML += `<p>O terceiro número chutado (${chute3}) é MENOR do que o número pensado.</p>`
+            }
+        }
+    </script>
+</body>
+</html>

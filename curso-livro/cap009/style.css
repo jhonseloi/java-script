@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+input[type='text'], [type='email'] {
+    width: 300px;
+}
+
+input[type='number'] {
+    width: 50px;
+}

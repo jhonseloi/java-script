@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Idade</title>
+</head>
+<body>
+    <script>
+        var pulaLinha = function() {
+            document.write('<br><br>')
+        }
+
+        var mostra = function(frase) {
+            document.write(frase)
+            pulaLinha
+        }
+
+        var agora = new Date()
+        var ano = agora.getFullYear()
+        mostra(`Eu nasci em ${ano - 24}`)
+        pulaLinha()
+        mostra(`Adriano nasceu em ${ano - 26}`)
+        pulaLinha()
+        mostra(`Paulo nasceu em ${ano - 32}`)
+    </script>
+</body>
+</html>

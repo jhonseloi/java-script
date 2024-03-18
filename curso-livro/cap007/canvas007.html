@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <h1>Bandeira do Brasil</h1>
+    <canvas id="tela" width="600" height="400"> </canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        c.fillStyle = 'green'
+        c.fillRect(0, 0, 600, 400)
+
+        c.fillStyle = 'yellow'
+        c.beginPath()
+        c.moveTo(300, 20) // Linha vertical superior
+        c.lineTo(20, 200) // Linha horizontal esquerda
+        c.lineTo(300, 380) // Linha vertical inferior
+        c.lineTo(580, 200) // Linha horizontal direita
+        c.fill()
+
+        c.fillStyle = 'blue'
+        c.beginPath()
+        c.arc(300, 200, 130, 0, 6.28)
+        c.fill()
+
+        c.fillStyle = 'white'
+        c.fillRect(170, 180, 260, 30)
+
+        c.fillStyle = 'black'
+        c.font = '20px Arial'
+        c.fillText('ORDEM E PROGRESSO', 185, 202)
+    </script>
+</body>
+</html>

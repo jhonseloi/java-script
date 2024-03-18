@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+    <style>
+        input[type='number'] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <p>Diga um número e veja até onde vai a contagem em '*'.</p>
+    <input type="number" name="num" id="num" min="1">
+    <input type="button" value="Confirmar" onclick="contagem()">
+    <div id="res"> 
+        
+    </div>
+    <script>
+        let res = document.querySelector('div#res')
+
+        function contagem() {
+            let n = document.querySelector('input#num').value
+
+            if (n > 0) {
+                res.innerHTML = ''
+                for (c = 1; c <= n; c++) {
+                    res.innerHTML += `<p>${'*'.repeat(c)}</p>` 
+                }
+                document.querySelector('input#num').value = ''
+            }
+        }
+    </script>
+</body>
+</html>

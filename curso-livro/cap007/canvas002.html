@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <h1>Bandeira da Colômbia</h1>
+    <canvas id="tela" width="600" height="600"> </canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela');
+        let c = tela.getContext('2d');
+
+        c.fillStyle = 'yellow';
+        c.fillRect(0, 0, 600, 200)
+
+        c.fillStyle = 'blue';
+        c.fillRect(0, 200, 600, 100)
+
+        c.fillStyle = 'red';
+        c.fillRect(0, 300, 600, 100)
+    </script>
+</body>
+</html>

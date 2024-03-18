@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <script>
+        let n_random = Math.round(Math.random() * 10)
+        for (let numero = 1; numero >= 1; numero++) {
+            let chute = prompt('Pensei em um número de 0 a 10. Qual você acha que é?')
+            if (n_random == chute) {
+                alert(`Você acertou depois de ${numero} tentativas. Parabéns!`)
+                break
+            } else {
+                if (chute < n_random) {
+                   alert(`Você errou. O número que você chutou é MENOR do que eu pensei. Tente novamente!`) 
+                }
+                if (chute > n_random) {
+                    alert(`Você errou. O número que você chutou é MAIOR do que eu pensei. Tente novamente!`)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

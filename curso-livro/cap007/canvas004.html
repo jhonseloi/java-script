@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <h1>Bandeira do Laos</h1>
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        c.fillStyle = 'red'
+        c.fillRect(0, 0, 600, 400)
+
+        c.fillStyle = 'blue'
+        c.fillRect(0, 90, 600, 220)
+
+        c.fillStyle = 'white'
+        c.beginPath()
+        c.arc(300, 200, 90, 0, 6.28)
+        c.fill()
+    </script>
+</body>
+</html>

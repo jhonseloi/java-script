@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+    background: rgb(63, 173, 209);
+    color: white;
+    font-family: Arial;
+}
+
+header, footer {
+    text-align: center;
+}
+
+section {
+    background: white;
+    color: black;
+    width: 500px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.219);
+}
+
+input[type="number"] {
+    width: 50px;
+}
+
+footer {
+    font-style: italic;
+    margin: 10px;
+}

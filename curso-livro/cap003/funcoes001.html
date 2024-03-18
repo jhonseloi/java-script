@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+<body>
+    <script>
+        let primeira = function() {
+            document.write('<p>1 - antes</p>')
+            segunda()
+            document.write('<p>1 - depois</p>')
+        }
+
+        let segunda = function() {
+            document.write('<p>2 - antes</p>')
+            terceira()
+            document.write('<p>2 - depois</p>')
+        }
+
+        let terceira = function() {
+            document.write('<p>3</p>')
+        }
+
+        primeira()
+    </script>
+</body>
+</html>

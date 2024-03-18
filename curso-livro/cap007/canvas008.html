@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+   <canvas id="tela" width="600" height="400"> </canvas>
+   <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        function quadrado(x, y) {
+            c.fillRect(x, y, 50, 50)
+            c.strokeStyle = 'black'
+            c.strokeRect(x, y, 50, 50)
+        }
+
+        function quadrado_verde(x, y) {
+            c.fillStyle = 'green'
+            quadrado(x, y)
+        }
+
+        function quadrado_vermelho(x, y) {
+            c.fillStyle = 'red'
+            quadrado(x, y)
+        }
+
+        function bola_azul(x, y) {
+            c.fillStyle = 'blue'
+            c.beginPath()
+            c.arc(x + 25, y, 25, 0, 6.28)
+            c.fill()
+        }
+
+        for (x = 0; x < 600; x = x + 50) {
+            quadrado_verde(x, 0)
+            quadrado_vermelho(x, 50)
+            bola_azul(x, 100)
+        }
+   </script>
+</body>
+</html>

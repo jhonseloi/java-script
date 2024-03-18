@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria</title>
+</head>
+<body>
+    
+    <input type="number" name="numero" id="numero" min="1" max="30">
+    <input type="button" value="Adivinhar" onclick="res()">
+    <p id="mensagem">De 1 a 30, tente adivinhar um dos seis números da loteria.</p>
+    <script>
+        let msg = document.querySelector('p#mensagem')
+        let segredos = [3, 7, 13, 15, 22, 29]
+
+        function res() {
+            let num = document.querySelector('input#numero').value
+            let acertou = false
+            let posicao = 0
+
+            if (num > 0 && num <= 30) {
+                for (let pos = 0; pos < segredos.length; pos++) {
+                    if (num == segredos[pos]) {
+                        acertou = true
+                        posicao = pos + 1
+                    }
+                }
+
+                if (acertou) {
+                    msg.innerHTML = `<p>Parabéns! Você acertou o ${posicao}º número premiado.</p>`
+                } else {
+                    msg.innerHTML = '<p>Infelizmente você errou.</p>'
+                }
+            }
+            
+            document.querySelector('input#numero').value = ''
+        }
+    </script>
+</body>
+</html>

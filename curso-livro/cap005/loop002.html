@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop (Quadrado)</title>
+    <style>
+        input[type='number'] {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="res">
+        <p>Crie um quadrado escolhendo o número de linhas e colunas.</p>
+        <p>
+            <label for="coluna">Colunas: </label>
+            <input type="number" name="coluna" id="coluna" min="1" required>
+        </p>
+        <p>         
+            <label for="linha">Linhas: </label>
+            <input type="number" name="linha" id="linha" min="1" required>
+        </p>
+        <input type="button" value="Confirmar" onclick="quadrado()">
+        
+    </div>
+    <script>
+        let res = document.querySelector('div#res')
+
+        function quadrado() {
+            let col = document.querySelector('input#coluna').value
+            let lin = document.querySelector('input#linha').value
+            if (col > 0 && lin > 0) {
+                res.innerHTML = ''
+                for (coluna = 1; coluna <= col; coluna++) {
+                    for (linha = 1; linha <= lin; linha++) {
+                        res.innerHTML += '*'
+                    }
+                    res.innerHTML += '<br>'
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Consumo</title>
+</head>
+<body>
+    <h1>Álcool ou Gasolina?</h1>
+    <script>
+        var tanque = 40 
+        var kmGasolina = 480
+        var kmAlcool = 300
+        var consumoDeGasolina = tanque / kmGasolina
+        var consumoDeAlcool = tanque / kmAlcool
+        var precoDaGasolina = 2.90
+        var precoDoAlcool = 2.40 
+        var precoPorKmG = consumoDeGasolina / precoDaGasolina
+        var precoPorKmA = consumoDeAlcool / precoDoAlcool
+        document.write(`<p>O tanque do meu carro suporta até ${tanque} litros de combustível.</p>`)
+        document.write(`<p>Preenchendo todo o tanque com gasolina, posso percorrer até ${kmGasolina} km. Isso dá a média de consumo de ${consumoDeGasolina.toFixed(2)} litros por km.</p>`)
+        document.write(`<p>O preço do litro de gasolina está ${precoDaGasolina.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}. Logo, o valor do consumo por km será ${precoPorKmG.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}.</p>`)
+        document.write(`<p>Preenchendo todo o tanque com álcool, posso percorrer até ${kmAlcool} km. Isso dá a média de consumo de ${consumoDeAlcool.toFixed(2)} litros por km.</p>`)
+        document.write(`<p>O preço do litro do álcool está ${precoDoAlcool.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}. Logo, o valor do consumo por km será ${precoPorKmA.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}.</p>`)
+    </script>
+</body>
+</html>

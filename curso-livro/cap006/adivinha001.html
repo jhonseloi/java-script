@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhar</title>
+</head>
+<body>
+    <input type="text" name="txt" id="txt">
+    <input type="submit" value="Compare com o meu segredo!" onclick="clique()">
+    <script>
+        let caixatxt = document.querySelector('input#txt')
+        function clique() {
+            alert(caixatxt.value)
+            caixatxt.value = ''
+        }
+    </script>
+</body>
+</html>

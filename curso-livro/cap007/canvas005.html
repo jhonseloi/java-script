@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <h1>Bandeira do Niger</h1>
+    <canvas id="tela" width="600" height="400"></canvas>
+    <script>
+        let tela = document.querySelector('canvas#tela')
+        let c = tela.getContext('2d')
+
+        c.fillStyle = 'orange'
+        c.fillRect(0, 0, 600, 130)
+
+        c.fillStyle = 'orange'
+        c.beginPath()
+        c.arc(300, 200, 60, 0, 6.28)
+        c.fill()
+
+        c.fillStyle = 'green'
+        c.fillRect(0, 270, 600, 130)
+    </script>
+</body>
+</html>

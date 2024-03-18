@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos no Futebpl</title>
+</head>
+<body>
+    <div id="res">
+
+    </div>
+    <script>
+        let res = document.getElementById('res')
+
+        let vitorias_lv = prompt('Quantos jogos Livros Velhos FC venceu?')
+        let empates_lv = prompt('Quantos jogos Livros Velhos FC empatou?')
+        let derrotas_lv = prompt('Quantos jogos Livros Velhos FC perdeu?')
+        let pontos_lvfc = (vitorias_lv * 3) + Number(empates_lv) - derrotas_lv
+
+        let vitorias_cdc = prompt('Quantos jogos Casa do Código FC venceu?')
+        let empates_cdc = prompt('Quantos jogos Casa do Código FC empatou?')
+        let derrotas_cdc = prompt('Quantos jogos Casa do Código FC perdeu?')
+        let pontos_cdcfc = (vitorias_cdc * 3) + Number(empates_cdc) - derrotas_cdc
+
+        if (pontos_lvfc > pontos_cdcfc) {
+            res.innerHTML = `<p>1° Livros Velhos FC (${pontos_lvfc} pontos) </p>2° Casa dos Livros FC (${pontos_cdcfc} pontos)`
+        } else if (pontos_lvfc == pontos_cdcfc) {
+            res.innerHTML = `<p>1° Livros Velhos FC (${pontos_lvfc} pontos) </p>1° Casa dos Livros FC (${pontos_cdcfc} pontos)`
+        } else {
+            res.innerHTML = `<p>1° Casa dos Livros FC (${pontos_cdcfc} pontos) </p>2° Livros Velhos FC (${pontos_lvfc} pontos)`
+        }
+    </script>
+</body>
+</html>
