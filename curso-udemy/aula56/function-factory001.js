@@ -12,7 +12,7 @@ function criaPessoa(nome, sobrenome, altura, peso) {
         altura, 
         peso,
 
-        imc() {
+        get imc() {
             const indiceMC = peso / (altura * altura)
             return `O IMC de ${this.nome} ${this.sobrenome} é ${indiceMC.toFixed(2)}`
         }
@@ -21,4 +21,4 @@ function criaPessoa(nome, sobrenome, altura, peso) {
 
 const pessoa = criaPessoa('João', 'Silva', 1.74, 80)
 console.log(pessoa.fala('sobre JS'))
-console.log(pessoa.imc())
+console.log(pessoa.imc)
