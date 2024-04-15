@@ -3,9 +3,11 @@ function criaCalculadora() {
         display: document.querySelector('.display'), 
 
         iniciar() {
+            this.clearDisplay()
             this.botoesClique()
             this.pressionaEnter()
             this.pressionaBackSpace()
+            this.validaInput()
         },
 
         botoesClique() {
@@ -28,16 +30,20 @@ function criaCalculadora() {
                     this.fazConta()
                 }
 
-                this.display.value.focus()
+                this.display.focus()
             })
         },
 
         btnParaDisplay(valor) {
-            this.display.value += valor
+            if (this.display.value === '0') {
+                this.display.value = valor
+            } else {
+                this.display.value += valor
+            }
         },
 
         clearDisplay() {
-            this.display.value = ''
+            this.display.value = '0'
         },
 
         apagaUm() {
@@ -75,6 +81,18 @@ function criaCalculadora() {
                 if (evento.keyCode === 8) {
                     evento.preventDefault()
                     this.apagaUm()
+                }
+            })
+        },
+
+        validaInput() {
+            this.display.addEventListener('input', evento => {
+                const input = evento.target.value
+                const ultimoCaractere = input[input.length - 1]
+                const num = /[0-9]/
+
+                if (!num.test(ultimoCaractere)) {
+                    evento.target.value = input.slice(0, -1)
                 }
             })
         }
