@@ -7,7 +7,6 @@ function Calculadora() {
         this.padraoZero()
         this.pressionaEnter()
         this.pressionaBackSpace()
-        this.soma()
     }
 
     this.botoesClique = function () {
