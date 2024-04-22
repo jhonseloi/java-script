@@ -1,16 +1,15 @@
 function Calculadora() {
     this.display = document.querySelector('.display')
 
-    this.iniciar = function () {
+    this.iniciar = function() {
         this.botoesClique()
+        this.pressionaEnter()
+        this.pressinaBackSpace()
         this.validaInput()
         this.padraoZero()
-        this.pressionaEnter()
-        this.pressionaBackSpace()
-        this.soma()
     }
 
-    this.botoesClique = function () {
+    this.botoesClique = function() {
         document.addEventListener('click', evento => {
             const elemento = evento.target
 
@@ -32,20 +31,20 @@ function Calculadora() {
         })
     }
 
-    this.btnParaDisplay = function (valor) {
+    this.btnParaDisplay = function(valor) {
         this.display.value += valor
     }
 
-    this.clearDisplay = function () {
+    this.clearDisplay = function() {
         this.display.value = ''
         this.padraoZero()
     }
 
-    this.apagaUm = function () {
+    this.apagaUm = function() {
         this.display.value = this.display.value.slice(0, -1)
     }
 
-    this.fazConta = function () {
+    this.fazConta = function() {
         let conta = this.display.value
 
         try {
@@ -57,7 +56,6 @@ function Calculadora() {
             }
 
             this.display.value = String(conta)
-
         } catch (evento) {
             if (!conta) {
                 alert('Conta inválida!')
@@ -66,8 +64,25 @@ function Calculadora() {
         }
     }
 
-    this.validaInput = function () {
-        document.addEventListener('input', evento => {
+    this.pressionaEnter = function() {
+        this.display.addEventListener('keyup', evento => {
+            if (evento.keyCode === 13) {
+                this.fazConta()
+            }
+        })
+    }
+
+    this.pressinaBackSpace = function() {
+        this.display.addEventListener('keydown', evento => {
+            if (evento.keyCode === 8) {
+                evento.preventDefault()
+                this.clearDisplay()
+            }
+        })
+    }
+
+    this.validaInput = function() {
+        this.display.addEventListener('input', evento => {
             const input = evento.target.value
             const ultimoCaractere = input[input.length - 1]
             const num = /[0-9]/
@@ -78,34 +93,9 @@ function Calculadora() {
         })
     }
 
-    this.padraoZero = function () {
+    this.padraoZero = function() {
         this.display.setAttribute('placeholder', '0')
     }
-
-    this.pressionaEnter = function () {
-        this.display.addEventListener('keyup', evento => {
-            if (evento.keyCode === 13) {
-                this.fazConta()
-            }
-        })
-    }
-
-    this.pressionaBackSpace = function () {
-        this.display.addEventListener('keydown', evento => {
-            if (evento.keyCode === 8) {
-                evento.preventDefault()
-                this.apagaUm()
-            }
-        })
-    }
-
-    this.soma = function () {
-        document.addEventListener('keydown', evento => {
-            if (evento.keyCode === 107) {
-                this.btnParaDisplay('+')
-            }
-        })
-    }    
 }
 
 const calc = new Calculadora()
