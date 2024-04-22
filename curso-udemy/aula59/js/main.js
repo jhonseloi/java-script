@@ -1,7 +1,7 @@
 function Calculadora() {
     this.display = document.querySelector('.display')
 
-    this.iniciar = function () {
+    this.iniciar = () => {
         this.botoesClique()
         this.padraoZero()
         this.validaInput()
@@ -9,46 +9,35 @@ function Calculadora() {
         this.pressionaBackSpace()
     }
 
-    this.botoesClique = function () {
+    this.botoesClique = () => {
         document.addEventListener('click', evento => {
             const elemento = evento.target
 
-            if (elemento.classList.contains('btn-num')) {
-                this.btnParaDisplay(elemento.innerHTML)
-            }
+            if (elemento.classList.contains('btn-num')) this.btnParaDisplay(elemento)
 
-            if (elemento.classList.contains('btn-clear')) {
-                this.clearDisplay()
-            }
+            if (elemento.classList.contains('btn-clear')) this.clearDisplay()
 
-            if (elemento.classList.contains('btn-del')) {
-                this.apagaUm()
-            }
+            if (elemento.classList.contains('btn-del')) this.deleta()
 
-            if (elemento.classList.contains('btn-equ')) {
-                this.fazConta()
-            }
+            if (elemento.classList.contains('btn-equ')) this.fazConta()
         })
     }
 
-    this.btnParaDisplay = function (valor) {
-        this.display.value += valor
+    this.btnParaDisplay = valor => {
+        this.display.value += valor.innerHTML
+        this.display.focus()
     }
 
-    this.clearDisplay = function () {
+    this.clearDisplay = () => {
         this.display.value = ''
         this.padraoZero()
     }
 
-    this.apagaUm = function () {
-        this.display.value = this.display.value.slice(0, -1)
-    }
+    this.deleta = () => this.display.value = this.display.value.slice(0, -1)
 
-    this.fazConta = function () {
-        let conta = this.display.value
-
+    this.fazConta = () => {
         try {
-            conta = eval(conta)
+            const conta = eval(this.display.value)
 
             if (!conta) {
                 alert('Conta inválida!')
@@ -65,43 +54,29 @@ function Calculadora() {
         }
     }
 
-    this.padraoZero = function () {
-        this.display.setAttribute('placeholder', '0')
-    }
+    this.padraoZero = () => this.display.setAttribute('placeholder', '0')
 
-    this.validaInput = function () {
+    this.validaInput = () => {
         document.addEventListener('input', evento => {
             const input = evento.target.value
             const ultimoCaractere = input[input.length - 1]
             const num = /[0-9]/
 
-            if (!num.test(ultimoCaractere)) {
-                evento.target.value = input.slice(0, -1)
-            }
+            if (!num.test(ultimoCaractere)) evento.target.value = input.slice(0, -1)
         })
     }
 
-    this.pressionaEnter = function () {
+    this.pressionaEnter = () => {
         this.display.addEventListener('keyup', evento => {
-            if (evento.keyCode === 13) {
-                this.fazConta()
-            }
+            if (evento.keyCode === 13) this.fazConta()
         })
     }
 
-    this.pressionaBackSpace = function () {
+    this.pressionaBackSpace = () => {
         this.display.addEventListener('keydown', evento => {
             if (evento.keyCode === 8) {
                 evento.preventDefault()
-                this.apagaUm()
-            }
-        })
-    }
-
-    this.soma = function () {
-        document.addEventListener('keydown', evento => {
-            if (evento.keyCode === 107) {
-                this.btnParaDisplay('+')
+                this.deleta()
             }
         })
     }
