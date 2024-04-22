@@ -3,8 +3,8 @@ function Calculadora() {
 
     this.iniciar = function () {
         this.botoesClique()
-        this.validaInput()
         this.padraoZero()
+        this.validaInput()
         this.pressionaEnter()
         this.pressionaBackSpace()
     }
@@ -65,6 +65,10 @@ function Calculadora() {
         }
     }
 
+    this.padraoZero = function () {
+        this.display.setAttribute('placeholder', '0')
+    }
+
     this.validaInput = function () {
         document.addEventListener('input', evento => {
             const input = evento.target.value
@@ -75,10 +79,6 @@ function Calculadora() {
                 evento.target.value = input.slice(0, -1)
             }
         })
-    }
-
-    this.padraoZero = function () {
-        this.display.setAttribute('placeholder', '0')
     }
 
     this.pressionaEnter = function () {
@@ -104,7 +104,7 @@ function Calculadora() {
                 this.btnParaDisplay('+')
             }
         })
-    }    
+    }
 }
 
 const calc = new Calculadora()
