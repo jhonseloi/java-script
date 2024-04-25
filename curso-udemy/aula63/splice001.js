@@ -46,6 +46,12 @@ const simularPush = () => {
     console.log(n)
 }
 
+const subArray = () => {
+    const n = [...nomes]
+    n.splice(0, 5, 'Paola', 'Tiago', 'Clara', 'Udson', 'Anitta')
+    console.log(n)
+}
+
 deletePositivo()
 console.log('--------')
 deleteNegativo()
@@ -59,3 +65,5 @@ console.log('--------')
 simularUnshift()
 console.log('--------')
 simularPush()
+console.log('--------')
+subArray()
