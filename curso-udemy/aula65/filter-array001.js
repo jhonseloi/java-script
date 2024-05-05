@@ -1,4 +1,4 @@
-// Filter -> Sempre vai retornar uma array com a mesma quantidade de elementos ou menos
+// Filter -> Sempre vai retornar (filtrar) uma array com a mesma quantidade de elementos ou menos
 
 function filter1() {
     // Retornar número maior que 10 (versão estendida)
