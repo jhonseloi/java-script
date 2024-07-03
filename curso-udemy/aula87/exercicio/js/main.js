@@ -1,4 +1,4 @@
-class ValidarFormulario {
+class ValidaFormulario {
     constructor() {
         this.formulario = document.querySelector('.formulario')
         this.eventos()
@@ -16,7 +16,7 @@ class ValidarFormulario {
         const senhasValidas = this.senhasSaoValidas()
 
         if (camposValidos && senhasValidas) {
-            alert('Formulário enviado!')
+            alert('Formulário enviado.')
             this.formulario.submit()
         }
     }
@@ -27,12 +27,12 @@ class ValidarFormulario {
         for (let errorText of this.formulario.querySelectorAll('.error-text')) {
             errorText.remove()
         }
-        
+
         for (let campo of this.formulario.querySelectorAll('.validar')) {
-            const label = campo.previousElementSibling.innerHTML
+            const label = campo.previousElementSibling.innerText
 
             if (!campo.value) {
-                this.criaErro(campo, `Campo ${label} não pode estar em branco.`)
+                this.criaErro(campo, `Campo "${label}" não pode estar em branco.`)
                 valid = false
             }
 
@@ -55,23 +55,23 @@ class ValidarFormulario {
         const repetirSenha = this.formulario.querySelector('.repetir-senha')
 
         if (senha.value !== repetirSenha.value) {
-            this.criaErro(senha, `Campos senha e repetir senha precisam ser iguais.`)
-            this.criaErro(repetirSenha, `Campos senha e repetir senha precisam ser iguais.`)
             valid = false
+            this.criaErro(senha, 'Campos senha e repetir senha precisar ser iguais.')
+            this.criaErro(repetirSenha, 'Campos senha e repetir senha precisar ser iguais.')
         }
 
         if (senha.value.length < 6 || senha.value.length > 12) {
-            this.criaErro(senha, `Campo senha precisam ter entre 6 e 12 caracteres.`)
             valid = false
+            this.criaErro(senha, 'Senha precisa estar entre 6 e 12 caracteres.')
         }
 
         return valid
     }
 
     validaCPF(campo) {
-        const cpf = new ValidaCPF(campo)
+        const cpf = new ValidaCPF(campo.value)
 
-        if (!cpf.valida()) {
+        if (!cpf.validaCpf()) {
             this.criaErro(campo, 'CPF inválido.')
             return false
         }
@@ -89,12 +89,13 @@ class ValidarFormulario {
         }
 
         if (!usuario.match(/^[a-zA-Z0-9]+$/g)) {
-            this.criaErro(campo, 'Usuário precisa ter bletras e/ou números.')
+            this.criaErro(campo, 'Nome de usuário precisar conter apenas letras e/ou números.')
             valid = false
         }
 
         return valid
     }
+
 
     criaErro(campo, msg) {
         const div = document.createElement('div')
@@ -104,4 +105,4 @@ class ValidarFormulario {
     }
 }
 
-const valida = new ValidarFormulario()
+const valida = new ValidaFormulario()
