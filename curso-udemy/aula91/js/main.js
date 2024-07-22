@@ -1,3 +1,4 @@
+// XMLHttpRequest (GET) + Promise
 const request = (obj) => {
    return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest()
@@ -25,19 +26,20 @@ document.addEventListener('click', e => {
 })
 
 async function carregaPagina(el) {
-    const href = el.getAttribute('href')
-    
-    const objConfig = {
-        method: 'GET',
-        url: href
-    }
-    
     try {
+        const href = el.getAttribute('href')
+        
+        const objConfig = {
+            method: 'GET',
+            url: href
+        }
+        
         const response = await request(objConfig)
         carregaResultado(response)
     } catch(e) {
-        paginaErro(e)
+        alert(e)
         console.log(e)
+        paginaErro()
     }
 }
 
@@ -47,6 +49,6 @@ function carregaResultado(response) {
     resultado.innerHTML = response
 }
 
-function paginaErro(e) {
-    resultado.innerHTML = e.toUpperCase()
+function paginaErro() {
+    resultado.innerHTML = ''
 }
