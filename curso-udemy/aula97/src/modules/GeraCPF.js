@@ -19,6 +19,6 @@ export default class GeraCPF {
         const digito1 = ValidaCPF.geraDigito(cpfSemDigito) 
         const digito2 = ValidaCPF.geraDigito(cpfSemDigito + digito1) 
         const novoCpf = cpfSemDigito + digito1 + digito2 
-        return this.formatado(novoCpf) 
+        return this.formatado(novoCpf)
     } 
 }
