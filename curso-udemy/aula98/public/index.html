@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,26 +11,27 @@
         <h1>Gerador de senhas</h1>
         <div class="senha-gerada">Selecione as opções</div>
         <li>
-            <label for="caracteres">Quantidade de números</label>
-            <input type="number" id="caracteres" value="0" min="1" max="20" class="qtd-caracteres">
+            <label for="caracteres">Quantidade de caracteres</label>
+            <input type="number" id="caracteres" min="4" max="20" class="qtd-caracteres">
         </li>
         <li>
-            <label for="maiusculas">Quantidade de letras maiúsculas</label>
-            <input type="checkbox" id="maiusculas" class="chk-maiusculas">
+            <label for="maiusculas">Adicionar letras maiúsculas</label>
+            <input type="checkbox" id="maiusculas" class="checked chec-maiusculas">
         </li>
         <li>
-            <label for="minusculas">Quantidade de letras minúsculas</label>
-            <input type="checkbox" id="minusculas" class="chk-minusculas">
+            <label for="minusculas">Adicionar letras minúsculas</label>
+            <input type="checkbox" id="minusculas" class="checked chec-minusculas">
         </li>
         <li>
-            <label for="numeros">Quantidade de números</label>
-            <input type="checkbox" id="numeros" class="chk-numeros">
+            <label for="numeros">Adicionar números</label>
+            <input type="checkbox" id="numeros" class="checked chec-numeros">
         </li>
         <li>
-            <label for="simbolos">Quantidade de símbolos</label>
-            <input type="checkbox" id="simbolos" class="chk-simbolos">
+            <label for="simbolos">Adicionar símbolos</label>
+            <input type="checkbox" id="simbolos" class="checked chec-simbolos">
         </li>
         <button class="gerar-senha">Gerar senha</button>
+        <button class="limpar">Limpar</button>
     </section>
     <script src="./assets/js/bundle.js"></script>
 </body>

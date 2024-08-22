@@ -1,21 +1,21 @@
-const rand = (min, max) => Math.floor(Math.random() * (max - min) + min)
+const random = (min, max) => Math.floor(Math.random() * (max - min) + min)
 
-const geraMaiuscula = () => String.fromCharCode(rand(65, 91))
-const geraMinuscula = () => String.fromCharCode(rand(97, 123))
-const geraNumero = () => String.fromCharCode(rand(48, 58))
-const simbolos = '!@#$%&*()-_+={[}]^~?/:;<,.>|'
-const geraSimbolo = () => simbolos[rand(0, simbolos.length)]
+const geraMaiuscula = () => String.fromCharCode(random(65, 91))
+const geraMinuscula = () => String.fromCharCode(random(97, 123))
+const geraNumero = () => String.fromCharCode(random(48, 58))
+const simbolos = '!@$%¨&*()-_+={[}]`´^~?/|'
+const geraSimbolo = () => simbolos[random(0, simbolos.length)]
 
-export default function geraSenha(qtd, maius, minus, num, simb) {
+export default function geraSenha(qtd, mai, min, num, simb) {
     const senhaArray = []
     qtd = Number(qtd)
 
     for (let i = 0; i < qtd; i++) {
-        maius && senhaArray.push(geraMaiuscula())
-        minus && senhaArray.push(geraMinuscula())
+        mai && senhaArray.push(geraMaiuscula())
+        min && senhaArray.push(geraMinuscula())
         num && senhaArray.push(geraNumero())
         simb && senhaArray.push(geraSimbolo())
     }
-
+    
     return senhaArray.join('').slice(0, qtd)
 }

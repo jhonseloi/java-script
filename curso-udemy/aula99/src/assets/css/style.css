@@ -59,24 +59,3 @@ form button {
 form button:hover {
     background: var(--primary-color-darker);
 }
-
-.senha-gerada {
-    color: var(--primary-color);
-    font-size: 1.3em;
-    font-weight: bold;
-    margin: 20px 0px;
-}
-
-input {
-    margin-left: 5px;
-}
-
-input[type="checked"] {
-    width: 30px;
-    height: 30px;
-}
-
-.gerar-senha, .limpar {
-    font-size: 1em;
-    margin: 20px 0px;
-}
