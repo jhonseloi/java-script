@@ -13,4 +13,4 @@ function walk(files) {
     }
 }
 
-readdir('/Programação/java-script/')
+readdir('/Programação/java-script/curso-udemy/')
