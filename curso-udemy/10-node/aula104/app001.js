@@ -6,7 +6,7 @@ const pessoas = [
     { nome: 'João' },
     { nome: 'Maria' },
     { nome: 'José' },
-    { nome: 'Luiza' },
+    { nome: 'Francisca' },
 ]
 const json = JSON.stringify(pessoas, '', 4)
 escreve(caminhoArquivo, json)
