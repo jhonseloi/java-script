@@ -1,12 +1,30 @@
 <%- include('includes/head') %>
+<%- include('includes/nav') %>
 
-<section class="container">
-    <form action="" method="post">
-        <input type="hidden" name="_csrf" value="<% csrfToken %>">
-        <label for="cliente">Cliente</label>
-        <input type="text" name="cliente" id="cliente">
-        <button>Enviar</button>
-    </form>
-</section>
+<div class="container">
+    <div class="row">
+        <div class="col-log-2"></div>
+        <div class="col-log-8 my-3">
+            <h1 class="text-center">Agenda</h1>
+            <p class="text-center lead">Seus contatos estão abaixo.</p>
+            <div class="row">
+                <div class="col my-3">
+                    <div class="alert alert-danger">Um erro qualquer.</div>
+                </div>
+            </div>
+            <div class="responsive-table">
+                <table class="table">
+                    <tr>
+                        <td>Luiz</td>
+                        <td>Silva</td>
+                        <td>(99) 99999-9999</td>
+                        <td>meuemail@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-log-2"></div>
+    </div>
+</div>
 
 <%- include('includes/footer') %>
