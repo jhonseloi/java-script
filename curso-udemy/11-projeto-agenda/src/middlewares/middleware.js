@@ -3,8 +3,8 @@ exports.middlewareGlobal = (req, res, next) => {
 }
 
 exports.checkCsrfError = (err, req, res, next) => {
-    if(err && 'EBADCSRFTOKEN' === err.code) {
-        return res.send('EBAD CSRF')
+    if(err) {
+        return res.render('404')
     }
     next()
 }
