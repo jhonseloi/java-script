@@ -18,6 +18,7 @@ class Login {
     async register() {
         this.valida()
         if(this.errors.length > 0) return
+
         try {
             this.user = await LoginModel.create(this.body)
         } catch(e) {
@@ -28,10 +29,12 @@ class Login {
     valida() {
         this.cleanUp()
 
-        if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido.')
+        if(!validator.isEmail(this.body.email)) {
+            this.errors.push('E-mail inválido.')
+        }
 
         if(this.body.password.length < 4 || this.body.password.length > 20) {
-            this.errors.push('A senha precisa ter entre 4 e 20 caracteres.')
+            this.errors.push('A senha precisa ter entre 4 a 20 caracteres.')
         }
     }
 
