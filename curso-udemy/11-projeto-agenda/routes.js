@@ -7,18 +7,18 @@ const contatoController = require('./src/controllers/contatoController')
 const { loginRequired } = require('./src/middlewares/middleware')
 
 // Rotas da home
-route.get('/', homeController.index)
+route.get('/home/', homeController.index)
 
 // Rotas de login
-route.get('/login/', loginController.index)
-route.post('/login/register/', loginController.register)
-route.post('/login/usuario/', loginController.login)
-route.get('/login/logout/', loginController.logout)
+route.get('/home/login/', loginController.index)
+route.post('/home/login/register/', loginController.register)
+route.post('/home/login/usuario/', loginController.login)
+route.get('/home/login/logout/', loginController.logout)
 
 // Rotas de contato
-route.get('/contato/', loginRequired, contatoController.index)
-route.post('/contato/register/', loginRequired, contatoController.register)
-route.get('/contato/:id', loginRequired, contatoController.editIndex)
-route.post('/contato/edit/:id', loginRequired, contatoController.edit)
+route.get('/home/contato/', loginRequired, contatoController.index)
+route.post('/home/contato/register/', loginRequired, contatoController.register)
+route.get('/home/contato/:id', loginRequired, contatoController.editIndex)
+route.post('/home/contato/edit/:id', loginRequired, contatoController.edit)
 
 module.exports = route

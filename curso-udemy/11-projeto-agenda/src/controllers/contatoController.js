@@ -13,12 +13,12 @@ exports.register = async(req, res) => {
 
         if(contato.errors.length > 0) {
             req.flash('errors', contato.errors)
-            req.session.save(() => res.redirect('/contato/'))
+            req.session.save(() => res.redirect('/home/contato/'))
             return
         }
 
         req.flash('success', 'Contato registrado com sucesso.')
-        req.session.save(() => res.redirect(`/contato/${contato.contato._id}`))
+        req.session.save(() => res.redirect(`/home/contato/${contato.contato._id}`))
         return
     } catch(e) {
         console.log(e)
@@ -43,12 +43,12 @@ exports.edit = async(req, res) => {
     
         if(contato.errors.length > 0) {
             req.flash('errors', contato.errors)
-            req.session.save(() => res.redirect('/contato/'))
+            req.session.save(() => res.redirect('/home/contato/'))
             return
         }
     
         req.flash('success', 'Contato editado com sucesso.')
-        req.session.save(() => res.redirect(`/contato/${contato.contato._id}`))
+        req.session.save(() => res.redirect(`/home/contato/${contato.contato._id}`))
         return
     } catch(e) {
         console.log(e)

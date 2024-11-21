@@ -46,6 +46,6 @@ app.use(routes)
 app.on('pronto', () => {
     app.listen(1024, () => {
         console.log('Servidor executando na porta 1024.')
-        console.log('Acessar http://localhost:1024/')
+        console.log('Acessar http://localhost:1024/home/')
     })
 })

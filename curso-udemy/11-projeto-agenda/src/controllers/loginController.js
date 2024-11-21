@@ -12,12 +12,12 @@ exports.register = async function(req, res) {
 
         if (login.errors.length > 0) {
             req.flash('errors', login.errors)
-            req.session.save(() => res.redirect('/login/'))
+            req.session.save(() => res.redirect('/home/login/'))
             return
         }
 
         req.flash('success', 'Seu usuário foi criado com sucesso.') 
-        req.session.save(() => res.redirect('/login/'))
+        req.session.save(() => res.redirect('/home/login/'))
         return 
     } catch(e) {
         console.log(e)
@@ -32,13 +32,13 @@ exports.login = async function(req, res) {
 
         if (login.errors.length > 0) {
             req.flash('errors', login.errors)
-            req.session.save(() => res.redirect('/login/'))
+            req.session.save(() => res.redirect('/home/login/'))
             return
         }
 
         req.flash('success', 'Você entrou no sistema.') 
         req.session.user = login.user
-        req.session.save(() => res.redirect('/login/'))
+        req.session.save(() => res.redirect('/home/login/'))
         return 
     } catch(e) {
         console.log(e)
