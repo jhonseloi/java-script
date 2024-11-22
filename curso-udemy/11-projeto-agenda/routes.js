@@ -20,5 +20,6 @@ route.get('/home/contato/', loginRequired, contatoController.index)
 route.post('/home/contato/register/', loginRequired, contatoController.register)
 route.get('/home/contato/:id', loginRequired, contatoController.editIndex)
 route.post('/home/contato/edit/:id', loginRequired, contatoController.edit)
+route.get('/home/contato/delete/:id', loginRequired, contatoController.delete)
 
 module.exports = route
