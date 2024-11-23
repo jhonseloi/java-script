@@ -48,5 +48,5 @@ exports.login = async function(req, res) {
 
 exports.logout = (req, res) => {
     req.session.destroy()
-    res.redirect('/')
+    res.redirect('/home/')
 }
