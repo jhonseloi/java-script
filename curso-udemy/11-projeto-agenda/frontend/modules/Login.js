@@ -13,9 +13,8 @@ export default class Login {
         if(existingError) existingError.remove()
         errorDiv.innerText = message
     
-    input.parentElement.appendChild(errorDiv)
-    input.classList.add('input-error')
-    
+        input.parentElement.appendChild(errorDiv)
+        input.classList.add('input-error')
         input.addEventListener('input', () => this.clearError(input))
     }
     

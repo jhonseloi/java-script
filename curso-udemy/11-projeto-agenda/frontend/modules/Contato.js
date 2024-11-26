@@ -6,58 +6,65 @@ export default class Contato {
     }
 
     error(input, message) {
-        const existingError = input.parentElement.querySelector('.error-message')
-        if (existingError) existingError.remove()
-
         const errorDiv = document.createElement('div')
         errorDiv.className = 'error-message'
-        errorDiv.innerText = message
-        input.parentElement.appendChild(errorDiv)
 
+        const existingError = input.parentElement.querySelector('.error-message')
+        if(existingError) existingError.remove()
+        errorDiv.innerText = message
+    
+        input.parentElement.appendChild(errorDiv)
         input.classList.add('input-error')
         input.addEventListener('input', () => this.clearError(input))
     }
-
+    
     clearError(input) {
         const errorDiv = input.parentElement.querySelector('.error-message')
-        if (errorDiv) errorDiv.remove()
+        if(errorDiv) errorDiv.remove()
         input.classList.remove('input-error')
     }
-
+    
     clearErrors() {
         const errorMessages = this.form.querySelectorAll('.error-message')
         errorMessages.forEach((msg) => msg.remove())
-
+        
         const errorInputs = this.form.querySelectorAll('.input-error')
         errorInputs.forEach((input) => input.classList.remove('input-error'))
     }
 
     validate(e) {
-        const el = this.form
+        const el = e.target
         const nomeInput = el.querySelector('input[name="nome"]')
         const emailInput = el.querySelector('input[name="email"]')
         const telefoneInput = el.querySelector('input[name="telefone"]')
         let isValid = true
-
+    
         this.clearErrors()
-
+    
+        if (!nomeInput.value) {
+            this.error(nomeInput, 'Nome é um campo obrigatório.')
+            isValid = false
+        } else {
+            this.clearError(nomeInput)
+        }
+    
         if (!validator.isEmail(emailInput.value)) {
             this.error(emailInput, 'E-mail inválido.')
             isValid = false
+        } else {
+            this.clearError(emailInput)
         }
-
-        if (!nomeInput.value.trim()) {
-            this.error(nomeInput, 'Nome é um campo obrigatório.')
-            isValid = false
-        }
-
-        if (!emailInput.value.trim() && !telefoneInput.value.trim()) {
+    
+        if (!emailInput.value && !telefoneInput.value) {
             this.error(telefoneInput, 'Pelo menos um contato precisa ser enviado: e-mail ou telefone.')
             isValid = false
+        } else {
+            this.clearError(telefoneInput)
         }
-
+    
         if (isValid) el.submit()
     }
+    
 
     events() {
         if (!this.form) return

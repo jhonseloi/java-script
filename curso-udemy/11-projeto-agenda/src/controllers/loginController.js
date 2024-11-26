@@ -10,11 +10,13 @@ exports.register = async function(req, res) {
         const login = new Login(req.body)
         await login.register()
 
+        /*
         if (login.errors.length > 0) {
             req.flash('errors', login.errors)
             req.session.save(() => res.redirect('/home/login/'))
             return
         }
+        */
 
         req.flash('success', 'Seu usuário foi criado com sucesso.') 
         req.session.save(() => res.redirect('/home/login/'))
@@ -30,12 +32,14 @@ exports.login = async function(req, res) {
         const login = new Login(req.body)
         await login.login()
 
+        /*
         if (login.errors.length > 0) {
             req.flash('errors', login.errors)
             req.session.save(() => res.redirect('/home/login/'))
             return
         }
-
+        */
+       
         req.flash('success', 'Você entrou no sistema.') 
         req.session.user = login.user
         req.session.save(() => res.redirect('/home/login/'))

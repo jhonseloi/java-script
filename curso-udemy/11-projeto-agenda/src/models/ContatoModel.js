@@ -34,7 +34,7 @@ Contato.prototype.cleanUp = function() {
 
 Contato.prototype.valida = function() {
     this.cleanUp()
-
+    
     if(this.body.email && !validator.isEmail(this.body.email)) {
         this.errors.push('E-mail inválido.')
     }

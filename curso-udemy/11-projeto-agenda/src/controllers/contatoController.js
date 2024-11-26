@@ -41,11 +41,13 @@ exports.edit = async(req, res) => {
         const contato = new Contato(req.body)
         await contato.edit(req.params.id)
     
+        /* 
         if(contato.errors.length > 0) {
             req.flash('errors', contato.errors)
             req.session.save(() => res.redirect('/home/contato/'))
             return
         }
+        */
     
         req.flash('success', 'Contato editado com sucesso.')
         req.session.save(() => res.redirect(`/home/contato/${contato.contato._id}`))
