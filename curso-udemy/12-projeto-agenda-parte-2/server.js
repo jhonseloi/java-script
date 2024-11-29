@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const PORT = process.env.PORT || 1024
 
 require('dotenv').config()
 mongoose.connect(process.env.CONNECTIONSTRING)
@@ -44,8 +45,8 @@ app.use(checkCsrfError)
 app.use(csrfMiddleware)
 app.use(routes)
 app.on('pronto', () => {
-    app.listen(1024, () => {
+    app.listen(PORT, () => {
         console.log('Servidor executando na porta 1024.')
-        console.log('Acessar http://localhost:1024/home/')
+        console.log('Acessar http://server.herokuapp.com/')
     })
 })
