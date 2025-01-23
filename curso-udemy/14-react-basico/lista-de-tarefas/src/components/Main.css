@@ -73,7 +73,7 @@
     transition: all 200ms;
 }
 
-.tarefas span {
+.tarefas li span {
     display: flex;
     align-items: center;
 }
