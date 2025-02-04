@@ -1,18 +1,18 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+import pluginReact from 'eslint-plugin-react'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
     {
-        files: ["**/*.{js,mjs,cjs,jsx}"],
+        files: ['**/*.{js,mjs,cjs,jsx}'],
     },
     {
         languageOptions: {
             globals: {
                 ...globals.browser,
-                test: "readonly",
-                expect: "readonly",
+                test: 'readonly',
+                expect: 'readonly',
             },
         },
     },
@@ -21,13 +21,13 @@ export default [
     {
         settings: {
             react: {
-                version: "detect",
+                version: 'detect',
             },
         },
     },
     {
         rules: {
-            "react/react-in-jsx-scope": "off",
+            'react/react-in-jsx-scope': 'off',
         },
     },
 ]
