@@ -1,17 +1,18 @@
 import React from 'react'
 
+import history from './services/history'
 import Header from './components/Header/'
 import GlobalStyle from './styles/GlobalStyle'
-import { BrowserRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
 import Routes from './routes'
 
 function App() {
     return (
-        <BrowserRouter>
+        <Router history={history}>
             <Header />
             <Routes />
             <GlobalStyle />
-        </BrowserRouter>
+        </Router>
     )
 }
 
