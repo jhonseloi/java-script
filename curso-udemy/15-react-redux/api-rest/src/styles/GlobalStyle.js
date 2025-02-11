@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { primaryColor, primaryDarkColor } from '../config/colors'
+import * as colors from '../config/colors'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default createGlobalStyle`
     * {
@@ -10,8 +11,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background: ${primaryDarkColor};
-        color: ${primaryDarkColor};
+        background: ${colors.primaryDarkColor};
+        color: ${colors.primaryDarkColor};
         font-family: sans-serif;
     }
 
@@ -20,7 +21,7 @@ export default createGlobalStyle`
     }
 
     button {
-        background: ${primaryColor};
+        background: ${colors.primaryColor};
         color: #fff;
         cursor: pointer;
         font-weight: 700;
@@ -30,12 +31,22 @@ export default createGlobalStyle`
     }
 
     a {
-        color: ${primaryColor};
+        color: ${colors.primaryColor};
         text-decoration: none;
     }
 
     ul {
         list-style: none;
+    }
+
+    body .Toastify .Toastify__toast-container .Toastify__toast--success {
+        background: ${colors.successColor};
+        color: #fff;
+    }
+
+    body .Toastify .Toastify__toast-container .Toastify__toast--error {
+        background: ${colors.errorColor};
+        color: #fff;
     }
 `
 
