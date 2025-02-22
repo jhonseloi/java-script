@@ -8,10 +8,7 @@ import persistedReducers from './modules/reduxPersist'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = legacy_createStore(
-    persistedReducers(rootReducer),
-    applyMiddleware(sagaMiddleware)
-)
+const store = legacy_createStore(persistedReducers(rootReducer), applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(rootSaga)
 
