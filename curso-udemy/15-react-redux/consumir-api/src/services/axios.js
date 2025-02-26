@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'http://curso1.otaviomiranda.com.br',
+    baseURL: 'https://randomuser.me/api/?results=3&nat=br',
 })
