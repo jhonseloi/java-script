@@ -28,7 +28,12 @@ function persistRehydrate({ payload }) {
     axios.defaults.headers.Authorization = `Bearer ${token}`
 }
 
+function registerRequest({ payload }) {
+    const { name, email, login, id } = payload
+}
+
 export default all([
     takeLatest(types.LOGIN_REQUEST, loginRequest),
     takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
+    takeLatest(types.REGISTER_REQUEST, registerRequest),
 ])

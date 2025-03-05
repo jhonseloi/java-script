@@ -14,12 +14,19 @@ export default function (state = initialState, action) {
                 ...state,
                 isLoggedIn: true,
                 token: action.payload.token,
-                state: action.payload.user,
+                user: action.payload.user,
+                isLoading: false,
             }
 
         case types.LOGIN_FAILURE:
             return {
                 ...initialState,
+            }
+
+        case types.LOGIN_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
             }
 
         default:
