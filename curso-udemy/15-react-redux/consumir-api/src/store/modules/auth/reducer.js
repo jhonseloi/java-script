@@ -29,6 +29,32 @@ export default function (state = initialState, action) {
                 isLoading: true,
             }
 
+        case types.REGISTER_UPDATED_SUCCESS:
+            return {
+                ...state,
+                name: action.payload.name,
+                email: action.payload.email,
+                isLoading: false,
+            }
+
+        case types.REGISTER_CREATED_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+            }
+
+        case types.REGISTER_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+            }
+
+        case types.REGISTER_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+            }
+
         default:
             return state
     }

@@ -16,7 +16,7 @@ function* loginRequest({ payload }) {
         axios.defaults.headers.Authorization = `Bearer ${response.data.token}`
         history.push(payload.prevPath)
     } catch (e) {
-        toast.error('Usuário ou ssenha inválido.')
+        toast.error('Usuário ou senha inválido.')
 
         yield put(actions.loginFailure())
     }
@@ -28,8 +28,42 @@ function persistRehydrate({ payload }) {
     axios.defaults.headers.Authorization = `Bearer ${token}`
 }
 
-function registerRequest({ payload }) {
+function* registerRequest({ payload }) {
     const { name, email, login, id } = payload
+
+    try {
+        if (id) {
+            yield call(axios.put, '/users', {
+                email,
+                name,
+                login: login.password || undefined,
+            })
+
+            toast.success('Conta alterada com sucesso.')
+            yield put(actions.registerUpdatedSuccess({ name, email, login }))
+        } else {
+            yield call(axios.post, '/users', {
+                email,
+                name,
+                login: login.password,
+            })
+
+            toast.success('Conta criada com sucesso.')
+            yield put(actions.registerCreatedSuccess({ name, email, login }))
+            history.push('/login')
+        }
+    } catch (e) {
+        const errors = get(e, 'response.data.errors', [])
+        // const status = get(e, 'response.status', 0)
+
+        if (errors.length > 0) {
+            errors.map((error) => toast.error(error))
+        } else {
+            toast.error('Erro desconhecido')
+        }
+
+        yield put(actions.registerFailure())
+    }
 }
 
 export default all([
